@@ -1,0 +1,6 @@
+idade,renda_mensal,tempo_emprego_anos,autonomo,score_credito,valor_solicitado,prazo_meses,juros_mensal_pct,qtde_cartoes,qtde_contratos_abertos,utilizacao_credito,inadimplencias_anteriores,dias_atraso_max_12m,reclamacoes_6m,possui_avalista,canal_aquisicao,regiao,tipo_produto
+22,2639.75,2.718887602673955,0,617.0,2619.14,12,3.96,3,0,0.012,1,0,0,0,site,Sul,emprestimo_pessoal
+59,2482.34,10.785992178882882,0,619.0,9101.21,36,3.37,2,2,0.282,1,0,0,0,app,Sudeste,cartao
+52,6230.69,9.547608253020993,0,665.0,13258.67,48,3.12,0,2,0.12,0,0,0,0,loja,Sudeste,cartao
+41,6469.45,4.2870841704756675,0,676.0,1407.28,12,1.52,2,3,0.67,0,90,1,0,parceiro,Sudeste,emprestimo_pessoal
+40,2343.04,0.0,0,671.0,2647.92,48,3.07,1,0,0.325,0,15,0,0,app,Nordeste,bnpl
