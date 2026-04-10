@@ -104,6 +104,9 @@ A interface permite:
 
 📌 O modelo deixa de ser teórico e vira uma ferramenta prática.
 
+![ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/1975f5dc-2d09-4012-9954-3b8febde9491)
+
+
 ---
 
 ## 📊 Etapas do Projeto
