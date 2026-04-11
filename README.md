@@ -37,7 +37,7 @@ Este projeto propõe uma solução **data-driven** para otimizar esse processo.
 
 ---
 
-## 🚀 Como Executar o Projeto
+## 🚀 Como rodar localmente
 
 
 ### 1. Clone o repositório
@@ -74,6 +74,23 @@ O modelo retorna:
 - `previsao` → classificação (0 ou 1)  
 - `probabilidade` → risco de inadimplência  
 - `decisao` → ação recomendada  
+
+---
+
+## 🐳 Como rodar com Docker
+
+### 1. Build da imagem
+
+```bash
+docker build -t payflow-inadimplencia .
+```
+
+### 2. Executar o container
+
+```bash
+docker run -p 8501:8501 payflow-inadimplencia
+```
+
 
 ---
 
@@ -211,6 +228,7 @@ payflow-inadimplencia/
 │   └── predict.py
 ├── main.py
 ├── requirements.txt
+├── Dockerfile
 └── README.md
 ```
 
