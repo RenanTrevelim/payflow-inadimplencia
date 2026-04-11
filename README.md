@@ -67,14 +67,6 @@ pip install -r requirements.txt
 streamlit run main.py
 ```
 
-## 📤 Saída do Modelo
-
-O modelo retorna:
-
-- `previsao` → classificação (0 ou 1)  
-- `probabilidade` → risco de inadimplência  
-- `decisao` → ação recomendada  
-
 ---
 
 ## 🐳 Como rodar com Docker
@@ -91,6 +83,15 @@ docker build -t payflow-inadimplencia .
 docker run -p 8501:8501 payflow-inadimplencia
 ```
 
+---
+
+## 📤 Saída do Modelo
+
+O modelo retorna:
+
+- `previsao` → classificação (0 ou 1)  
+- `probabilidade` → risco de inadimplência  
+- `decisao` → ação recomendada  
 
 ---
 
