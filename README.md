@@ -1,41 +1,169 @@
 # 🏦 Motor de Decisão de Crédito com Machine Learning
 
-Projeto completo de **modelagem de risco de inadimplência** com aplicação prática em concessão de crédito, incluindo:
+Sistema de apoio à decisão que utiliza Machine Learning para **avaliar risco de crédito em lote** e traduzir previsões em **impacto financeiro direto para o negócio**.
 
-- Análise exploratória (EDA)
-- Feature engineering
-- Modelagem e validação
-- Simulação financeira
-- Interface interativa com **Streamlit**
+> 📊 O foco não é apenas prever inadimplência — é **maximizar retorno financeiro da carteira**.
 
 ---
 
-## 📌 Objetivo
+## 🎯 Objetivo
 
-Desenvolver um modelo capaz de prever a **probabilidade de inadimplência** e transformá-lo em uma **ferramenta de apoio à decisão de crédito**, permitindo:
+Construir um motor capaz de:
 
-- Reduzir perdas financeiras  
-- Automatizar aprovações de baixo risco  
-- Priorizar análises manuais  
-- Apoiar decisões estratégicas  
+- Estimar a **probabilidade de inadimplência**
+- Converter essa probabilidade em **decisões operacionais**
+- Gerar uma **visão financeira da carteira de crédito**
+- Apoiar decisões com base em **risco vs retorno**
 
 ---
 
 ## 🧠 Problema de Negócio
 
-Instituições financeiras precisam equilibrar dois objetivos:
+Concessão de crédito envolve decisões com impacto direto no resultado financeiro:
 
-- Aprovar bons clientes → gerar receita  
-- Evitar inadimplentes → reduzir prejuízo  
+| Situação | Impacto |
+|--------|--------|
+| Aprovar cliente inadimplente | ❌ Prejuízo direto |
+| Negar cliente bom | ⚠️ Perda de receita |
+| Aprovar cliente bom | ✅ Geração de lucro |
 
-Uma decisão incorreta pode gerar:
-
-- ❌ **Calote direto**
-- ⚠️ **Perda de oportunidade (bom cliente recusado)**
-
-Este projeto propõe uma solução **data-driven** para otimizar esse processo.
+👉 O desafio é encontrar o **equilíbrio ideal entre risco e crescimento**.
 
 ---
+
+## 💡 Solução
+
+O projeto implementa um pipeline completo:
+
+1. **Previsão de risco (probabilidade)**
+2. **Classificação automática de clientes**
+3. **Segmentação da carteira**
+4. **Resumo financeiro em tempo real**
+
+---
+
+## ⚙️ Motor de Decisão
+
+A decisão é baseada na probabilidade prevista pelo modelo:
+
+```text
+probabilidade ≥ 0.65 → Negar  
+0.40 ≤ probabilidade < 0.65 → Revisar  
+probabilidade < 0.40 → Aprovar  
+```
+📌 Implementado diretamente no código (predict.py)
+
+--- 
+
+## 📤 Saída do Modelo
+
+Para cada cliente:
+
+- 📊 **probabilidade** → risco de inadimplência  
+- 🔢 **previsao** → classificação binária  
+- 🧠 **decisao** → ação recomendada  
+
+---
+
+## 💰 Camada de Negócio (Principal Diferencial)
+
+O sistema traduz decisões em métricas financeiras reais da carteira:
+
+### 📊 Indicadores disponíveis
+
+- 💵 **Valor aprovado** → capital exposto ao risco  
+- 🚫 **Valor negado** → risco evitado  
+- ⚠️ **Valor em revisão** → incerteza / análise manual  
+- 💼 **Receita estimada** → retorno esperado (juros)  
+- 🔒 **Valor bloqueado** → proteção contra risco  
+- 📊 **% aprovado** → nível de agressividade do modelo  
+- 💳 **Ticket médio** → risco médio por cliente  
+
+📌 Implementado na aplicação Streamlit  
+
+---
+
+## 📈 Interpretação Financeira
+
+A análise permite responder perguntas críticas:
+
+- Quanto dinheiro estou colocando em risco?  
+- Quanto estou deixando de perder?  
+- Meu modelo está conservador ou agressivo?  
+- Estou priorizando crescimento ou proteção?  
+
+👉 O modelo passa a ser avaliado como um **ativo financeiro**, não apenas técnico.
+
+---
+
+## 🖥️ Aplicação (Streamlit)
+
+Interface interativa para uso em lote:
+
+- Upload de arquivo `.csv`  
+- Classificação automática dos clientes  
+- Segmentação:
+  - ✅ Aprovados  
+  - ⚠️ Revisão  
+  - ❌ Negados  
+- Visualização de métricas financeiras  
+- Download dos resultados  
+
+📌 Implementação disponível na aplicação principal  
+
+---
+
+## 🔍 Pipeline de Machine Learning
+
+### 1. Feature Engineering
+
+Criação de variáveis de risco:
+
+- comprometimento de renda  
+- parcela estimada  
+- relação parcela/renda  
+
+📌 Implementado no `predict.py`
+
+---
+
+### 2. Pré-processamento
+
+- Normalização (`StandardScaler`)  
+- Codificação (`OneHotEncoder`)  
+- Pipeline com `ColumnTransformer`  
+
+---
+
+### 3. Modelagem
+
+- Regressão Logística (modelo principal)  
+- Saída probabilística (`predict_proba`)  
+
+---
+
+### 4. Decisão
+
+Conversão da probabilidade em ação:
+
+- Aprovar  
+- Revisar  
+- Negar  
+
+---
+
+## 📊 Resultado na Prática
+
+A aplicação permite simular uma carteira real e obter:
+
+- Volume financeiro aprovado  
+- Valor de risco bloqueado  
+- Receita estimada da operação  
+- Perfil de risco da carteira  
+
+👉 Isso transforma o modelo em uma **ferramenta de decisão executiva**.
+
+--- 
 
 ## 🚀 Como rodar localmente
 
@@ -82,182 +210,3 @@ docker build -t payflow-inadimplencia .
 ```bash
 docker run -p 8501:8501 payflow-inadimplencia
 ```
-
----
-
-## 📤 Saída do Modelo
-
-O modelo retorna:
-
-- `previsao` → classificação (0 ou 1)  
-- `probabilidade` → risco de inadimplência  
-- `decisao` → ação recomendada  
-
----
-
-## 🧠 Regras de Decisão
-
-Transformação da probabilidade em ação prática:
-
-- 🔴 **≥ 0.65 → Negar**  
-- 🟡 **≥ 0.40 → Revisar**  
-- 🟢 **< 0.40 → Aprovar**  
-
-📌 Aproxima o modelo da operação real de crédito.
-
----
-
-## 🖥️ Aplicação com Streamlit
-
-A interface permite:
-
-- Upload de base em lote (.csv)  
-- Classificação automática dos clientes  
-- Segmentação em:
-  - Aprovados  
-  - Revisar  
-  - Negados  
-- Download dos resultados  
-- Resumo financeiro da carteira  
-
-📌 O modelo deixa de ser teórico e vira uma ferramenta prática.
-
-![ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/1975f5dc-2d09-4012-9954-3b8febde9491)
-
-
----
-
-## 📊 Etapas do Projeto
-
-### 🔍 1. Análise Exploratória (EDA)
-
-- Análise estatística  
-- Tratamento de dados  
-- Identificação de padrões  
-
-**Principais insights:**
-
-- Atrasos recentes são fortes indicadores de risco  
-- Comprometimento de renda impacta inadimplência  
-- Score de crédito tem relação inversa com risco  
-
----
-
-### ⚙️ 2. Feature Engineering
-
-Criação de variáveis relevantes:
-
-- `comprometimento_renda`  
-- `parcela_estimada`  
-- `parcela_renda`  
-
----
-
-### 🧪 3. Pré-processamento
-
-- Padronização (`StandardScaler`)  
-- Codificação (`OneHotEncoder`)  
-- Pipeline com `ColumnTransformer`  
-
----
-
-### 🤖 4. Modelagem
-
-Modelos utilizados:
-
-- Regressão Logística (principal)  
-- Random Forest (comparação)  
-
-📌 Uso de `class_weight='balanced'`
-
----
-
-### 🎯 5. Ajuste de Threshold
-
-- 0.3 → mais conservador  
-- 0.4 → equilíbrio  
-- 0.5 → melhor trade-off  
-
----
-
-### 🔁 6. Validação
-
-- Técnica: Stratified K-Fold  
-- Recall: 0.64  
-- Precision: 0.28  
-- F1-score: 0.39  
-
-📌 Modelo consistente e generalizável.
-
----
-
-### ⭐ 7. Interpretabilidade
-
-Principais drivers de risco:
-
-- Comprometimento da renda  
-- Dias de atraso  
-- Histórico de inadimplência  
-
-📌 Modelo explicável e alinhado ao negócio.
-
----
-
-### 💰 8. Avaliação Financeira
-
-- Perda evitada: **R$ 951 mil**  
-- Impacto líquido: **R$ 350 mil**  
-
-📌 Geração de valor real.
-
-
-## 🧱 Estrutura do Projeto
-
-```text
-payflow-inadimplencia/
-├── data/
-│   ├── payflow_credit_risk.csv
-│   └── teste.csv
-├── models/
-│   ├── modelo.pkl
-│   ├── pre-processamento.pkl
-│   └── colunas_modelo.pkl
-├── notebooks/
-│   ├── EDA_projeto_PayFlow.ipynb
-│   └── PayFlow_Projeto_de_Inadimplencias.ipynb
-├── src/
-│   └── predict.py
-├── main.py
-├── requirements.txt
-├── Dockerfile
-└── README.md
-```
-
-## 🛠️ Tecnologias Utilizadas
-
-- Python  
-- Pandas  
-- Scikit-learn  
-- Streamlit  
-- Joblib  
-- Jupyter Notebook  
-
----
-
-## 📌 Possíveis Melhorias
-
-- Deploy da aplicação (Streamlit Cloud / AWS)  
-- Monitoramento de drift do modelo  
-- Testes automatizados  
-- Dockerização  
-- API com FastAPI  
-- Calibração de probabilidades  
-
----
-
-## 👤 Autor
-
-**Renan Trevelim**
-
-- GitHub: https://github.com/RenanTrevelim  
-- LinkedIn: https://www.linkedin.com/in/renan-trevelim/  
