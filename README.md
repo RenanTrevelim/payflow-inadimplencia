@@ -6,6 +6,43 @@ Sistema de apoio à decisão que utiliza Machine Learning para **avaliar risco d
 
 ---
 
+## 📊 Resultados Financeiros (Destaque do Projeto)
+
+Aplicando o modelo em uma base de teste, foi possível simular o impacto financeiro da carteira:
+
+### 💰 Impacto Financeiro
+
+- 🚫 **Calotes evitados:** 90  
+- 🛡️ **Perda evitada:** R$ 1.006.969,18  
+- ⚠️ **Prejuízo com falsos negativos:** R$ 358.033,49  
+- 📉 **Custo de oportunidade (bons clientes negados):** R$ 288.216,96  
+- 💼 **Impacto líquido estimado:** **R$ 360.718,74**  
+
+---
+
+### 🎯 Interpretação
+
+- O modelo conseguiu **evitar mais de R$ 1 milhão em perdas potenciais**  
+- Mesmo considerando erros (falsos negativos e falsos positivos), o resultado final foi **positivo**  
+- O impacto líquido de **R$ 360 mil** mostra que o modelo gera valor real para o negócio  
+
+👉 Isso demonstra que o modelo não apenas prevê risco, mas **melhora diretamente o resultado financeiro da operação de crédito**
+
+---
+
+### 🧠 Conclusão
+
+O modelo permite:
+
+- Reduzir perdas com inadimplência  
+- Controlar erros críticos de decisão  
+- Balancear risco e retorno  
+- Tomar decisões orientadas a valor  
+
+👉 Transformando Machine Learning em uma **ferramenta estratégica de negócio**
+
+---
+
 ## 🎯 Objetivo
 
 Construir um motor capaz de:
